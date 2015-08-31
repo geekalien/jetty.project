@@ -16,32 +16,9 @@
 //  ========================================================================
 //
 
-package org.eclipse.jetty.websocket.api.annotations;
+package org.eclipse.jetty.client;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-import org.eclipse.jetty.websocket.api.BatchMode;
-
-/**
- * Tags a POJO as being a WebSocket class.
- */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(value =
-{ ElementType.TYPE })
-public @interface WebSocket
+public interface Validateable
 {
-    int inputBufferSize() default -2;
-
-    int maxBinaryMessageSize() default -2;
-
-    int maxIdleTime() default -2;
-
-    int maxTextMessageSize() default -2;
-    
-    BatchMode batchMode() default BatchMode.AUTO;
+    boolean validate();
 }
